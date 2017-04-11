@@ -64,7 +64,7 @@ module.exports = {
         ]),
         createElementView('Answer', msg, [
           createPostbackButton({
-            title: 'Done',
+            title: 'Swipe Back to hide!',
             payload: actions.createPayload(actions.CONFIRM_ANSWER, gameID),
           }),
         ]),
@@ -75,7 +75,7 @@ module.exports = {
   handleChoiceSet: (sender, payload) => {
     const gameID = actions.getPayloadId(payload);
     sendMessage(
-      createQuestion(sender, 'Teller answer the question.', [
+      createQuestion(sender, 'Hey Teller, whats your answer?', [
         {
           text: 'Done',
           payload: actions.createPayload(actions.DONE, gameID),
@@ -127,7 +127,7 @@ module.exports = {
   handleConversationDone: (sender, payload) => {
     const gameID = actions.getPayloadId(payload);
     sendMessage(
-      createQuestion(sender, 'Investigator guess.', [
+      createQuestion(sender, 'Investigator, what do you think of their story?', [
         {
           text: 'Truth',
           payload: actions.createPayload(actions.SELECT_TRUTH, gameID),
